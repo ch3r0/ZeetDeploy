@@ -75,13 +75,14 @@ RUN cd /root && \
         libpulse-dev m4 intltool dpkg-dev \
         libfdk-aac-dev \
         libopus-dev \
-        libmp3lame-dev && \ 
+        libmp3lame-dev \
+        mplayer \
+        screen && \
+    git clone -b main https://github.com/rojserbest/VoiceChatPyroBot.git && cd VoiceChatPyroBot && \     
     apt-get update && apt build-dep pulseaudio -y && \
     cd /tmp && apt source pulseaudio && \
-    pulsever=$(pulseaudio --version | awk '{print $2}') && cd /tmp/pulseaudio-$pulsever && ./configure  && \
-    git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && cd pulseaudio-module-xrdp && ./bootstrap && ./configure PULSE_DIR="/tmp/pulseaudio-$pulsever" && make && \
-    cd /tmp/pulseaudio-$pulsever/pulseaudio-module-xrdp/src/.libs && install -t "/var/lib/xrdp-pulseaudio-installer" -D -m 644 *.so && \
-    cd /root && \
+    pulsever=$(pulseaudio --version | awk '{print $2}') && cd /tmp/pulseaudio-$pulsever && ./configure \
+    && cd /root && \
     #git clone -b master https://github.com/neutrinolabs/xrdp.git && \
     #git clone -b master https://github.com/neutrinolabs/xorgxrdp.git && \
     git clone -b devel https://github.com/neutrinolabs/xrdp.git && \
@@ -93,8 +94,8 @@ RUN cd /root && \
     rm -R /root/xorgxrdp && \
     # bugfix clipboard bug: [xrdp-chansrv] <defunct> && \
     apt-mark manual libfdk-aac1 && \
+    apt install pavucontrol && \
     apt-get -y purge \
-        git \
         libxfont-dev \
         libx11-dev \
         libxfixes-dev \

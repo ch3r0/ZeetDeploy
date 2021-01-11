@@ -5,8 +5,7 @@ WORKDIR /root
 COPY sysinfo /usr/bin
 RUN chmod 755 /usr/bin/sysinfo
 
-RUN apt-get update -y && \ 
-    #apt-get install -yqq caja-dropbox && \
+RUN apt-get update -y && \
     apt-get install --no-install-recommends -y \
         git \
         telnet \
@@ -19,7 +18,7 @@ RUN apt-get update -y && \
         remmina* \
         openjdk-11-jdk \
         libreoffice \
-        pasmo \
+        pasmo \ 
         git build-essential qt5-default \
         chromium-browser \
         libqt5widgets5 && \
