@@ -15,7 +15,7 @@ RUN apt-get update -y && \
         dia \
         geany \
         putty \
-        remmina* \
+        remmina \
         openjdk-11-jdk \
         libreoffice \
         pasmo \ 
