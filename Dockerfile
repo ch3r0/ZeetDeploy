@@ -42,6 +42,7 @@ RUN cd /root && \
         vim \
         mc \
         ca-certificates \
+        chromium \
         xterm \
         curl \
         wget \
