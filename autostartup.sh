@@ -13,6 +13,7 @@ fi
 # username:passsword:Y
 # username2:password2:Y
 echo "music:music:Y" >/root/createusers.txt
+echo "admin:root:Y" >/root/createusers.txt
 file="/root/createusers.txt"
 if [ -f $file ]
   then
